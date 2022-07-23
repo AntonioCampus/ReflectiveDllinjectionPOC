@@ -1,9 +1,10 @@
 # REFLECTIVE DLL INJECTION
 
 ## About
-To learn how reflective dll injection works, i decided  to write my POC.
+I decided to write my POC about reflective dll injection in order
+to learn how this technique works.
 
-To better understand how this technique works see [stephenfewer](https://github.com/stephenfewer/ReflectiveDLLInjection).
+To better understand how reflective dll injection works see [stephenfewer](https://github.com/stephenfewer/ReflectiveDLLInjection).
 
 ## Compile
 Open reffDllInje.sln with visual studio and compile it in release mode.
