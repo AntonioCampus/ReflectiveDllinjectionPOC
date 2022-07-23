@@ -1,0 +1,10 @@
+﻿  dllmain.cpp
+  RefLoader.c
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(68): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(142): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(166): warning C4047: '!=': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(173): warning C4047: '!=': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(102): warning C4047: 'inizializzazione': 'DWORD_PTR' differisce da 'LPVOID' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(211): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\refloader.c(207): warning C4244: 'inizializzazione': conversione da 'double' a 'int'. Possibile perdita di dati.
+  dll.vcxproj -> E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Debug\dll.dll

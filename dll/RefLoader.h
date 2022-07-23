@@ -1,0 +1,31 @@
+#ifndef REFLOADER
+#define REFLOADER
+
+#include <Windows.h>
+#include "structures.h"
+
+
+#define DEBUG 1
+#define KERNEL32HASH	0x1b407d64
+#define LOADLIBRARYAH	0x3a42ec03  
+#define GETPROCCADDH	0x31fc6227
+#define VIRTUALALLOH	0x0cb8e659
+#define GETCURPROCESSH  0x0a20c67f
+#define READPROCSSMEMH  0x00b6bc6a
+#define WRITEPROCMEMH   0x3436f95d
+#define WINEXECH		0x07458a4e
+
+
+typedef HMODULE(WINAPI * LOADLIBRARYA)(LPCSTR);
+typedef FARPROC(WINAPI * GETPROCADDRESS)(HMODULE, LPCSTR);
+typedef LPVOID(WINAPI * VIRTUALALLOC)(LPVOID, SIZE_T, DWORD, DWORD);
+typedef UINT(WINAPI *WINEXEC)(LPCSTR, UINT);
+typedef BOOL(WINAPI *DLLEntry)(HINSTANCE dll, DWORD reason, LPVOID reserved);
+
+DWORD32 CalcHash(BYTE *str, DWORD size);
+DWORD32 strLen(BYTE *str);
+ULONG_PTR WINAPI ReflectiveLoader(LPVOID param);
+
+
+
+#endif // REFLOADER
