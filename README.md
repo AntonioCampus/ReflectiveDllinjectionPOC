@@ -7,7 +7,7 @@ to learn how this technique works.
 To better understand how reflective dll injection works see [stephenfewer](https://github.com/stephenfewer/ReflectiveDLLInjection).
 
 ## Compile
-Open reffDllInje.sln with visual studio and compile it in release mode.
+Open reffDllInje.sln with visual studio and compile the project in release mode.
 
 ## Usage
 >reffDllInje.exe to inject in currenr process
