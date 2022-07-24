@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="RefLoader.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>

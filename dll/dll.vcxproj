@@ -159,7 +159,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
     <ClInclude Include="RefLoader.h" />
     <ClInclude Include="structures.h" />
   </ItemGroup>
