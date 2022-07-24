@@ -16,6 +16,10 @@ To better understand how reflective dll injection works see [stephenfewer](https
 Open reffDllInje.sln with visual studio and compile the project in release mode.
 
 ## Usage
->reffDllInje.exe to inject in currenr process
+>reffDllInje.exe to inject in current process
 
 >reffDllInje.exe [pid] to inject in another process
+
+## Additional information
+
+Currently, only 32bit process are supported.
