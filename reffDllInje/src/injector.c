@@ -1,4 +1,4 @@
-#include "injector.h"
+#include "..\headers\injector.h"
 
 DWORD32 CalcHash(BYTE *str, DWORD size)
 {

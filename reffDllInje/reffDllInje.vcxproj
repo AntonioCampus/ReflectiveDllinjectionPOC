@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="injector.c" />
-    <ClCompile Include="reffdinj.c" />
+    <ClInclude Include="headers\injector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="injector.h" />
+    <ClCompile Include="src\injector.c" />
+    <ClCompile Include="src\reffdinj.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

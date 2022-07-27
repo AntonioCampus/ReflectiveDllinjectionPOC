@@ -161,15 +161,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="RefLoader.h" />
-    <ClInclude Include="structures.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="dllmain.c" />
-    <ClCompile Include="RefLoader.c" />
+    <ClCompile Include="src\dllmain.c" />
+    <ClCompile Include="src\RefLoader.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\RefLoader.h" />
+    <ClInclude Include="headers\structures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
