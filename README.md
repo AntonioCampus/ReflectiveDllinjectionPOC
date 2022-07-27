@@ -20,6 +20,3 @@ Open reffDllInje.sln with visual studio and compile the project in release mode.
 
 >reffDllInje.exe [pid] to inject in another process
 
-## Additional information
-
-Currently, only 32bit process are supported.
