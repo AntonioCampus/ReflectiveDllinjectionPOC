@@ -1,9 +1,9 @@
 ﻿  injector.c
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(15): warning C4047: 'funzione': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(15): warning C4024: 'CreateFileA': tipi diversi tra il parametro 3 formale e quello effettivo
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(15): warning C4024: 'CreateFileA': tipi diversi tra il parametro 6 formale e quello effettivo
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(95): warning C4018: '<': errata corrispondenza tra signed e unsigned
-  reffdinj.c
-  Generazione del codice in corso...
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(132): warning C4715: 'inject': non tutti i percorsi di controllo restituiscono un valore
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(12): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(8): warning C4244: 'inizializzazione': conversione da 'double' a 'int'. Possibile perdita di dati.
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(42): warning C4047: 'funzione': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(42): warning C4024: 'CreateFileA': tipi diversi tra il parametro 3 formale e quello effettivo
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(42): warning C4024: 'CreateFileA': tipi diversi tra il parametro 6 formale e quello effettivo
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(124): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\injector.c(161): warning C4715: 'inject': non tutti i percorsi di controllo restituiscono un valore
   reffDllInje.vcxproj -> E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Debug\reffDllInje.exe

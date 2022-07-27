@@ -2,19 +2,23 @@
 #include "RefLoader.h"
 
 
+#define DEBUG 1
 
 ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 
-	DWORD_PTR ownimageBase = (DWORD_PTR)param;
+	
+	ULONG_PTR ownimageBase = (ULONG_PTR)param;
 	/* [------------------------ PART 1 ---------------------------]
 	| Now i'm going to find the address of the library kerne32.dll
 	| then i will parse its export table in order to find
 	| the function: loadlibrary, getprocessaddress, virtualalloc
 	  [------------------------------------------------------------]
 	*/
-
-	DWORD_PTR pebAddress = __readfsdword(0x30);
-
+#ifdef _WIN64
+	ULONG_PTR pebAddress = __readgsqword(0x60);
+#else
+	ULONG_PTR pebAddress = __readfsdword(0x30);
+#endif
 
 	/*---------------------------------------------
 	[1.1] SEARCHING FOR THE KERNELL32 ADDRESS  [1.1]
@@ -23,21 +27,15 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 	PPEB_LDR_DATA ldr = peb->pLdr;
 	LIST_ENTRY *listEntry = ldr->InMemoryOrderModuleList.Flink;
 	LDR_DATA_TABLE_ENTRY *ldrData;
-	DWORD_PTR k32dllBase;
+	ULONG_PTR k32dllBase;
 
 	do {
 		ldrData = (LDR_DATA_TABLE_ENTRY*)listEntry;
 		listEntry = listEntry->Flink;
 	} while (KERNEL32HASH != CalcHash((BYTE*)ldrData->BaseDllName.pBuffer, ldrData->BaseDllName.Length));
 
-	k32dllBase = (DWORD_PTR)ldrData->DllBase;
+	k32dllBase = (ULONG_PTR)ldrData->DllBase;
 
-	/*------------------------------------------------------------
-	[1.2] PARSING KERNELL32 IN ORDER TO FIND THE ADDRESS OF   [1.2]
-		-loadlibrary
-		-getprocaddress
-		-virtualalloc
-	--------------------------------------------------------------*/
 
 	PIMAGE_DOS_HEADER dosHeader = (PIMAGE_DOS_HEADER)k32dllBase;
 	PIMAGE_NT_HEADERS ntHeaders = (PIMAGE_NT_HEADERS)(k32dllBase + dosHeader->e_lfanew);
@@ -45,12 +43,10 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 	IMAGE_DATA_DIRECTORY dirEntry = optHeaders.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT];
 	IMAGE_EXPORT_DIRECTORY* expDir = (IMAGE_EXPORT_DIRECTORY*)(dirEntry.VirtualAddress + k32dllBase);
 
-
-
-	DWORD_PTR addOfname = expDir->AddressOfNames + k32dllBase;
-	DWORD_PTR addOfnameOrd = expDir->AddressOfNameOrdinals + k32dllBase;
-	DWORD_PTR addOfFunc = expDir->AddressOfFunctions + k32dllBase;
-	DWORD_PTR address = 0;
+	ULONG_PTR addOfname = expDir->AddressOfNames + k32dllBase;
+	ULONG_PTR addOfnameOrd = expDir->AddressOfNameOrdinals + k32dllBase;
+	ULONG_PTR addOfFunc = expDir->AddressOfFunctions + k32dllBase;
+	ULONG_PTR address = 0;
 	DWORD32 hash = 0;
 	LOADLIBRARYA loadLibaddr = NULL;
 	GETPROCADDRESS getproaddr = NULL;
@@ -58,14 +54,16 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 	WINEXEC winexec = NULL;
 
 	for (int x = 0; x < expDir->NumberOfFunctions; x++) {
-		address = *(DWORD_PTR*)(addOfname + x * (sizeof(BYTE) * 4));
-		address += (DWORD_PTR)k32dllBase;
+		// even in 64bit dll the rva are 32bit long
+		address = *(DWORD32*)(addOfname + x * (sizeof(BYTE) * 4));
+		address += (ULONG_PTR)k32dllBase;
+		
 		int size = strLen((BYTE*)address);
 		hash = CalcHash((BYTE*)address, size);
 		if (hash == LOADLIBRARYAH || hash == GETPROCCADDH || hash == VIRTUALALLOH) {
 			address = addOfnameOrd + (x * 2);
 			USHORT ordval = *(USHORT*)address;
-			address = *(DWORD_PTR*)(addOfFunc + (ordval * 4));
+			address = *(DWORD32*)(addOfFunc + (ordval * 4));
 			address = address + k32dllBase;
 			switch (hash)
 			{
@@ -79,6 +77,7 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 				break;
 			}
 		}
+		
 	}
 
 	/* [------------------------ PART 2 ---------------------------]
@@ -139,12 +138,13 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 			DWORD_PTR relocAddress = newDLLLoc + (DWORD_PTR)(block->VirtualAddress + entry->Offset);
 			DWORD_PTR addtp;
 			addtp = *(DWORD_PTR*)relocAddress;
-			addtp += deltaImageBase;	
+			addtp += deltaImageBase;
 			if (entry->Type == 3) {
 				*(DWORD_PTR*)relocAddress = addtp;
 			}
 		}
 	}
+
 	/* [------------------------ PART 4 --------------------------]
 	|	Now, we must manually resolve import address table
 	|  [----------------------------------------------------------]
@@ -188,6 +188,8 @@ ULONG_PTR WINAPI ReflectiveLoader(LPVOID param) {
 
 	DLLEntry DllEntry = (DLLEntry)(newDLLLoc + NtHeaders->OptionalHeader.AddressOfEntryPoint);
 	(*DllEntry)((HINSTANCE)newDLLLoc, DLL_PROCESS_ATTACH, 0);
+
+
 
 	return 0;
 }

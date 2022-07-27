@@ -1,9 +1,32 @@
 #include "injector.h"
 
+DWORD32 CalcHash(BYTE *str, DWORD size)
+{
+	DWORD32 p = 31;
+	int m = 1e9 + 9;
+	DWORD32 power_of_p = 1;
+	DWORD32 hash_val = 0;
+
+	for (int i = 0; i < size; i++) {
+		hash_val = (hash_val + (str[i] - 'a' + 1) * power_of_p) % m;
+		power_of_p = (power_of_p * p) % m;
+	}
+	return hash_val;
+}
+
+DWORD32 strLen(BYTE *str)
+{
+	DWORD32 i = 0;
+	while (str[i] != 0) {
+		i++;
+	}
+	return i;
+}
+
+#define DEBUG 1
 
 DWORD inject(DWORD processid)
 {
-
 	HANDLE hToken = NULL;
 	TOKEN_PRIVILEGES priv = { 0 };
 
@@ -13,7 +36,12 @@ DWORD inject(DWORD processid)
 	|  --------------------------------------------------------------------------------*/
 
 	HANDLE hFile = CreateFileA(PATH, GENERIC_READ | GENERIC_WRITE | GENERIC_EXECUTE, NULL, NULL, OPEN_EXISTING, NULL, NULL);
-	if (hFile == INVALID_HANDLE_VALUE) return -1;
+	if (hFile == INVALID_HANDLE_VALUE) {
+		printf("Failed to open the file %s\n", PATH);
+		return -1;
+	}
+	
+	
 	DWORD fileSize = GetFileSize(hFile, NULL);
 	HANDLE fileObmem = CreateFileMapping(hFile, NULL, PAGE_EXECUTE_READWRITE, 0, 0, NULL);
 	if (fileObmem == NULL) return GetLastError();
@@ -128,7 +156,15 @@ DWORD inject(DWORD processid)
 
 	HANDLE hThread = CreateRemoteThread(hProcess, NULL, 1024 * 1024, (LPTHREAD_START_ROUTINE)address, dllBase, (DWORD)NULL, NULL);
 
+	
 	WaitForSingleObject(hThread, INFINITE);
+
+	while (1) {
+		printf("Waiting..");
+		Sleep(1000);
+	}
+
+	
 }
 
 DWORD32 Rva2Offset(DWORD dwRva, UINT_PTR uiBaseAddress)
