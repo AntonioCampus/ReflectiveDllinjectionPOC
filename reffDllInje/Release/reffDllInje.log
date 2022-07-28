@@ -1,14 +1,1 @@
-﻿  injector.c
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(10): warning C4018: '<': errata corrispondenza tra signed e unsigned
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(6): warning C4244: 'inizializzazione': conversione da 'double' a 'int'. Possibile perdita di dati.
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(38): warning C4047: 'funzione': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(38): warning C4024: 'CreateFileA': tipi diversi tra il parametro 3 formale e quello effettivo
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(38): warning C4024: 'CreateFileA': tipi diversi tra il parametro 6 formale e quello effettivo
-e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\reffdllinje\src\injector.c(123): warning C4018: '<': errata corrispondenza tra signed e unsigned
-  reffdinj.c
-  Generazione codice in corso...
-  1 of 6 functions (16.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  Generazione codice terminata
-  reffDllInje.vcxproj -> E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Release\reffDllInje.exe
+﻿
