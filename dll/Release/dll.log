@@ -1,0 +1,14 @@
+﻿  dllmain.c
+  RefLoader.c
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(56): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(133): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(158): warning C4047: '!=': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(165): warning C4047: '!=': 'DWORD' differisce da 'void *' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(93): warning C4047: 'inizializzazione': 'DWORD_PTR' differisce da 'LPVOID' nei livelli di riferimento indiretto
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(205): warning C4018: '<': errata corrispondenza tra signed e unsigned
+e:\computer_stuff\sviluppo\os-study\windows\winapi\code_injection\reflective_dll_injcetion\reffdllinje\reffdllinje\dll\src\refloader.c(201): warning C4244: 'inizializzazione': conversione da 'double' a 'int'. Possibile perdita di dati.
+     Creazione della libreria E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Release\payload_32bit.lib e dell'oggetto E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Release\payload_32bit.exp
+  Generazione codice in corso...
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generazione codice terminata
+  dll.vcxproj -> E:\Computer_stuff\Sviluppo\OS-STUDY\WINDOWS\WINAPI\CODE_INJECTION\REFLECTIVE_DLL_INJCETION\reffDllInje\reffDllInje\Release\payload_32bit.dll
